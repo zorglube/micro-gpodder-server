@@ -28,7 +28,12 @@ set_exception_handler(function ($e) {
 	exit;
 });
 
-define('DATA_ROOT', __DIR__ . '/data');
+$MGP_DATA_DIR = getenv('MGP_DATA_DIR');
+if(empty($MGP_DATA_DIR)) {
+	define('DATA_ROOT', __DIR__ . '/data');
+} else {
+	define('DATA_ROOT', $MGP_DATA_DIR . '/data');
+}
 
 if (!file_exists(DATA_ROOT)) {
 	mkdir(DATA_ROOT);
