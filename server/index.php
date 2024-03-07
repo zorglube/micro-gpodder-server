@@ -1,4 +1,4 @@
-ot <?php
+<?php
 
 require_once __DIR__ . '/inc/DB.php';
 require_once __DIR__ . '/inc/API.php';
