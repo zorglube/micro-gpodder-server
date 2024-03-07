@@ -29,7 +29,7 @@ set_exception_handler(function ($e) {
 });
 
 echo 'MGP_DATA_DIR: ' .$_ENV["MGP_DATA_DIR"] . '!';
-var $DATA_HOME = getenv('MGP_DATA_DIR');
+$DATA_HOME = getenv('MGP_DATA_DIR');
 echo "DATA_HOME: $DATA_HOME";
 
 if(empty($DATA_HOME)) {
