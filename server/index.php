@@ -28,7 +28,7 @@ set_exception_handler(function ($e) {
 	exit;
 });
 
-$DATA_HOME = getenv('MGP_DATA_DIR');
+var $DATA_HOME = getenv('MGP_DATA_DIR');
 if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
 } else {
