@@ -1,4 +1,4 @@
-<?php
+ot <?php
 
 require_once __DIR__ . '/inc/DB.php';
 require_once __DIR__ . '/inc/API.php';
@@ -29,14 +29,14 @@ set_exception_handler(function ($e) {
 });
 
 var $DATA_HOME = getenv('MGP_DATA_DIR');
-error_log("DATA_HOME:" . $DATA_HOME, 0);
+echo "DATA_HOME: $DATA_HOME";
 
 if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
-	error_log("DATA_ROOT:" . $DATA_ROOT, 0);
+	echo "DATA_ROOT: $DATA_ROOT";
 } else {
 	define('DATA_ROOT', $DATA_HOME . '/data');
-	error_log("DATA_ROOT:" . $DATA_ROOT, 0);
+	echo "DATA_ROOT: $DATA_ROOT";
 }
 
 if (!file_exists(DATA_ROOT)) {
