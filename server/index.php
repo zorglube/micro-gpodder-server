@@ -29,10 +29,14 @@ set_exception_handler(function ($e) {
 });
 
 var $DATA_HOME = getenv('MGP_DATA_DIR');
+error_log("DATA_HOME:" . $DATA_HOME, 0);
+
 if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
+	error_log("DATA_ROOT:" . $DATA_ROOT, 0);
 } else {
 	define('DATA_ROOT', $DATA_HOME . '/data');
+	error_log("DATA_ROOT:" . $DATA_ROOT, 0);
 }
 
 if (!file_exists(DATA_ROOT)) {
