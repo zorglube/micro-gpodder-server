@@ -33,10 +33,10 @@ echo "DATA_HOME: $DATA_HOME";
 
 if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
-	echo 'DATA_ROOT: ' . DATA_ROOT;
+	echo 'Defalt DATA_ROOT: ' . DATA_ROOT;
 } else {
  	define('DATA_ROOT', $DATA_HOME . '/data');
- 	echo 'DATA_ROOT: ' . DATA_ROOT;
+ 	echo 'Dynamic DATA_ROOT: ' . DATA_ROOT;
 }
 
 if (!file_exists(DATA_ROOT)) {
