@@ -28,11 +28,11 @@ set_exception_handler(function ($e) {
 	exit;
 });
 
-$MGP_DATA_DIR = getenv('MGP_DATA_DIR');
-if(empty($MGP_DATA_DIR)) {
+$DATA_HOME = getenv('MGP_DATA_DIR');
+if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
 } else {
-	define('DATA_ROOT', $MGP_DATA_DIR . '/data');
+	define('DATA_ROOT', $DATA_HOME . '/data');
 }
 
 if (!file_exists(DATA_ROOT)) {
