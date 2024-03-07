@@ -7,7 +7,7 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: ${APP_HOME}/gpodder-data
+        target: /var/www/server/data
     hostname: gpodder.localhost
     ports:
       - 8080:8080
