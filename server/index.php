@@ -33,7 +33,7 @@ echo "DATA_HOME: $DATA_HOME";
 
 if(empty($DATA_HOME)) {
 	define('DATA_ROOT', __DIR__ . '/data');
-	echo 'Defalt DATA_ROOT: ' . DATA_ROOT;
+	echo 'Default DATA_ROOT: ' . DATA_ROOT;
 } else {
  	define('DATA_ROOT', $DATA_HOME . '/data');
  	echo 'Dynamic DATA_ROOT: ' . DATA_ROOT;
