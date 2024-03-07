@@ -28,17 +28,17 @@ set_exception_handler(function ($e) {
 	exit;
 });
 
-// echo 'MGP_DATA_DIR: ' .$_ENV["MGP_DATA_DIR"] . '!';
-// var $DATA_HOME = getenv('MGP_DATA_DIR');
-// echo "DATA_HOME: $DATA_HOME";
+echo 'MGP_DATA_DIR: ' .$_ENV["MGP_DATA_DIR"] . '!';
+var $DATA_HOME = getenv('MGP_DATA_DIR');
+echo "DATA_HOME: $DATA_HOME";
 
-// if(empty($DATA_HOME)) {
-define('DATA_ROOT', __DIR__ . '/data');
-echo 'DATA_ROOT: ' .DATA_ROOT;
-// } else {
-// 	define('DATA_ROOT', $DATA_HOME . '/data');
-// 	echo "DATA_ROOT: $DATA_ROOT";
-// }
+if(empty($DATA_HOME)) {
+	define('DATA_ROOT', __DIR__ . '/data');
+	echo 'DATA_ROOT: ' .DATA_ROOT;
+} else {
+ 	define('DATA_ROOT', $DATA_HOME . '/data');
+ 	echo "DATA_ROOT: $DATA_ROOT";
+}
 
 if (!file_exists(DATA_ROOT)) {
 	mkdir(DATA_ROOT);
