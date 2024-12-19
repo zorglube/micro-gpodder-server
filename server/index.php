@@ -106,30 +106,24 @@ function html_head() {
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=device-dpi" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
-		<title>' . htmlspecialchars($title) . '</title>
+		<title>'.htmlspecialchars($title).'</title>
 		<link rel="icon" href="icon.svg" />
-		<!-- Matomo -->
-		<script>
-		  var _paq = window._paq = window._paq || [];
-		  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		  _paq.push(["setDomains", ["*.gpodder.broncotoxique.com","*.gpodder.broncotoxique.com"]]);
-		  _paq.push(['trackPageView']);
-		  _paq.push(['enableLinkTracking']);
-		  (function() {
-		    var u="https://qvfjshcweffsvuhxdjfd-matomo.services.clever-cloud.com/";
-		    _paq.push(['setTrackerUrl', u+'matomo.php']);
-		    _paq.push(['setSiteId', '3']);
-		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-		  })();
+  		<script type="text/JavaScript">
+			var _paq = window._paq = window._paq || [];
+			_paq.push([\'trackPageView\']);
+			_paq.push([\'enableLinkTracking\']);
+			(function() {
+				var u="https://qvfjshcweffsvuhxdjfd-matomo.services.clever-cloud.com/";
+				_paq.push([\'setTrackerUrl\', u+\'matomo.php\']);
+				_paq.push([\'setSiteId\', \'3\']);
+				var d=document, g=d.createElement(\'script\'), s=d.getElementsByTagName(\'script\')[0];
+				g.async=true; g.src=u+\'matomo.js\'; s.parentNode.insertBefore(g,s);
+			})();
 		</script>
-		<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://qvfjshcweffsvuhxdjfd-matomo.services.clever-cloud.com/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-		<!-- End Matomo Code -->
 	</head>
-
 	<body>
-	<h1>' . htmlspecialchars($title) . ' <img src="icon.svg" alt="" /></h1>
-	<main>';
+		<h1>' . htmlspecialchars($title) . ' <img src="icon.svg" alt="" /></h1>
+		<main>';
 }
 
 function html_foot() {
