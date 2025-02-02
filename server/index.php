@@ -120,7 +120,7 @@ function html_head() {
 			g.async=true; g.src=u+\'matomo.js\'; s.parentNode.insertBefore(g,s);
 		})();
 		</script>
-		<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://qvfjshcweffsvuhxdjfd-matomo.services.clever-cloud.com/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+		<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://analytics.broncotoxique.com/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
 	</head>
 	<body>
 		<h1>' . htmlspecialchars($title) . ' <img src="icon.svg" alt="" /></h1>
