@@ -108,20 +108,7 @@ function html_head() {
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<title>'.htmlspecialchars($title).'</title>
 		<link rel="icon" href="icon.svg" />
-		<script type="text/JavaScript">
-		var _paq = window._paq = window._paq || [];
-		_paq.push([\'trackPageView\']);
-		_paq.push([\'enableLinkTracking\']);
-		(function() {
-			var u="https://analytics.broncotoxique.com/";
-			_paq.push([\'setTrackerUrl\', u+\'matomo.php\']);
-			_paq.push([\'setSiteId\', \'3\']);
-			var d=document, g=d.createElement(\'script\'), s=d.getElementsByTagName(\'script\')[0];
-			g.async=true; g.src=u+\'matomo.js\'; s.parentNode.insertBefore(g,s);
-		})();
-		</script>
-		<noscript><p><img referrerpolicy="no-referrer-when-downgrade" src="https://analytics.broncotoxique.com/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-	</head>
+		</head>
 	<body>
 		<h1>' . htmlspecialchars($title) . ' <img src="icon.svg" alt="" /></h1>
 		<main>';
