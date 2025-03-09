@@ -51,35 +51,15 @@ If you want to allow more accounts, you'll have to configure the server (see "Co
 
 ### Docker
 
-See [Docker Hub](https://hub.docker.com/search?q=opodsync) to find community distribution for Docker. Please don't report Docker issues here, this repository is only for software development.
+There is an unofficial [Docker image available](https://github.com/ganeshlab/opodsync). Please report any Docker issue there.
+
+If this image stops being maintained, see [Docker Hub](https://hub.docker.com/search?q=opodsync) to find other community distribution for Docker.
+
+**Please don't report Docker issues here, this repository is only for software development.**
 
 ### Configuration
 
-You can create a `config.local.php` in the `data` directory (overridable with the `DATA_ROOT` environment variable), defining configuration constants:
-
-```
-<?php
-
-// Enable or disable subscriptions (boolean)
-// By default the server allows to create one account
-// and then disables subscriptions
-const ENABLE_SUBSCRIPTIONS = true;
-
-// Set to a file path to enable the debug log
-// Set to NULL (default) to disable the debug log
-const DEBUG = __DIR__ . '/debug.log';
-
-// Set to change the instance name
-const TITLE = 'My awesome GPodder server';
-
-// Set to the URL where the server is hosted
-const BASE_URL = 'https://gpodder.mydomain.tld/me/';
-
-// Set this to TRUE to forbid users from updating feed metadata,
-// as this may add some load on your server
-// (default is FALSE)
-const DISABLE_USER_METADATA_UPDATE = true;
-```
+You can copy the `config.dist.php` to `data/config.local.php`, and edit it to suit your needs.
 
 ### Fetching and updating feeds metadata
 
@@ -110,7 +90,7 @@ gPodder (the [desktop client](https://gpodder.github.io), not the gpodder.net se
 
 This means that you have to use a unique secret token as the username.
 
-This token is displayed when you log in. Use it as the username in gPodder configuration.
+This token can be created when you log in. Use it as the username in gPodder configuration. Be warned that this username is replacing your password, so it lowers the security of your account.
 
 ## APIs
 

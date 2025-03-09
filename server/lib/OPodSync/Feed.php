@@ -1,5 +1,7 @@
 <?php
 
+namespace OPodSync;
+
 class Feed
 {
 	public ?string $feed_url = null;
@@ -32,8 +34,9 @@ class Feed
 		}
 	}
 
-	public function sync(DB $db): void
+	public function sync(): void
 	{
+		$db = DB::getInstance();
 		$db->exec('BEGIN;');
 		$db->upsert('feeds', $this->export(), ['feed_url']);
 		$feed_id = $db->firstColumn('SELECT id FROM feeds WHERE feed_url = ?;', $this->feed_url);
@@ -142,8 +145,9 @@ class Feed
 			return null;
 		}
 
-		if (false !== strpos($str, ':')) {
+		if (false !== strpos($str, ':') && ctype_digit(str_replace(':', '', trim($str)))) {
 			$parts = explode(':', $str);
+			$parts = array_map('intval', $parts);
 			$duration = ($parts[2] ?? 0) * 3600 + ($parts[1] ?? 0) * 60 + $parts[0] ?? 0;
 		}
 		else {
