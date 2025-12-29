@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This is an example config for oPodSync
+ * It should be copied to `config.local.php` and placed in the `server/data` directory.
+ */
+
 namespace OPodSync;
 
 /**
@@ -42,6 +47,21 @@ const TITLE = 'My oPodSync server';
 const DISABLE_USER_METADATA_UPDATE = false;
 
 /**
+ * KARADAV_URL
+ * Set to the URL of an external KaraDAV server if you want to use this oPodSync instance
+ * as an external app inside KaraDAV.
+ *
+ * If enabled, an account will be created in oPodSync for any KaraDAV user
+ * if they don't have one already.
+ *
+ * Don't forget the API key in the URL.
+ *
+ * Default: null (disabled)
+ * @var string|null
+ */
+//const KARADAV_URL = 'https://:abcd@karadav.example.org/';
+
+/**
  * DATA_ROOT
  * Path of directory where data will be stored.
  * ROOT is the root of oPodSync code.
@@ -69,7 +89,7 @@ const DB_FILE = DATA_ROOT . '/data.sqlite';
 /**
  * SQLITE_JOURNAL_MODE
  * SQLite3 journaling mode
- * Default: TRUNCATE (slower)
+ * Default: TRUNCATE (slower, but safer)
  * Recommended: WAL (faster, but read below)
  *
  * If your database file is on a local disk, you will get better performance by using
@@ -137,3 +157,4 @@ const ERRORS_REPORT_URL = null;
  * Default: null (= disabled)
  * @var string|null
  */
+const DEBUG_LOG = DATA_ROOT . '/debug.log';

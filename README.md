@@ -20,6 +20,7 @@ Requires PHP 7.4+ and SQLite3 with JSON1 extension.
 * Self-registration
 * See subscriptions and history on web interface
 * Fetch feeds and episodes metadata and store them locally (optional)
+* Can be used as an app inside [KaraDAV](https://fossil.kd2.org/karadav/) (alternative WebDAV server with support for NextCloud clients)
 
 ## Roadmap
 
@@ -126,6 +127,7 @@ This server has been tested so far with:
 * [gPodder](https://gpodder.github.io/) 3.10.17 - Debian (requires a specific token, see above!)
 * [Kasts](https://invent.kde.org/multimedia/kasts) 21.08 - Linux/Windows/Android
 * [PinePods](https://github.com/madeofpendletonwool/PinePods) 0.6.1 - WebServer
+* [Music Assistant](https://www.music-assistant.io/music-providers/gpodder/) (according to their documentation)
 
 Please report if apps work (or not) with other clients.
 

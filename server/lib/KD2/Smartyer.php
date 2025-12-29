@@ -106,6 +106,7 @@ class Smartyer
 	 */
 	protected array $modifiers = [
 		'nl2br' => 'nl2br',
+		'strip_tags' => 'strip_tags',
 		'count' => 'count',
 		'args' 	=> 'sprintf',
 		'const' => 'constant',
@@ -1317,7 +1318,10 @@ class Smartyer
 	 */
 	static public function dateFormat($date, string $format = '%b, %e %Y'): string
 	{
-		if (is_object($date)) {
+		if (is_null($date) || is_array($date)) {
+			return '';
+		}
+		elseif (is_object($date)) {
 			$date = $date->getTimestamp();
 		}
 		elseif (!is_numeric($date)) {
@@ -1328,7 +1332,12 @@ class Smartyer
 			return date(constant($format), $date);
 		}
 
-		return @strftime($format, $date);
+		if (method_exists('\KD2\Translate', 'strftime')) {
+			return \KD2\Translate::strftime($format, $date);
+		}
+		elseif (function_exists('strftime')) {
+			return @strftime($format, $date);
+		}
 	}
 
 	/**

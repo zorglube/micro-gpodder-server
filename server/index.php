@@ -2,8 +2,7 @@
 
 namespace OPodSync;
 
-$uri = strtok($_SERVER['REQUEST_URI'], '?');
-strtok('');
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // Stop here if we are using CLI server and the requested resource exists,
 // it will be served by PHP HTTP server
@@ -15,20 +14,37 @@ if (PHP_SAPI === 'cli-server'
 
 require_once __DIR__ . '/_inc.php';
 
-// Try to handle API requests first
-$api = new API;
-
 try {
-	if ($api->handleRequest()) {
+	// Try to handle API requests first
+	$api = new API;
+	$uri = $api->getRequestURI();
+
+	if ($api->handleRequest($uri)) {
 		return;
 	}
-} catch (JsonException $e) {
+}
+catch (APIException $e) {
+	$api->error($e);
 	return;
 }
 
 if (PHP_SAPI === 'cli') {
 	$gpodder->updateAllFeeds(true);
 	exit(0);
+}
+
+$uri = trim($uri, '/');
+
+// Return 404 is URI is invalid
+if (!in_array($uri, ['', 'index.php'], true)) {
+	http_response_code(404);
+	echo '<h1>404 Not Found</h1>';
+	exit;
+}
+
+if (KARADAV_URL && isset($_GET['ext_sessionid'])) {
+	$gpodder->loginExternal($_GET['ext_sessionid']);
+	$tpl->assign('user', $gpodder->user);
 }
 
 if ($gpodder->user) {
@@ -49,6 +65,7 @@ if ($gpodder->user) {
 	$tpl->display('index_logged.tpl');
 }
 else {
+	$tpl->assign('can_subscribe', $gpodder->canSubscribe());
 	$tpl->display('index.tpl');
 }
 
